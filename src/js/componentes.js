@@ -43,8 +43,11 @@ divTodoList.addEventListener('click', (event) =>{
     const todoId = todoElemento.getAttribute('data-id');// capturando el id de data-id
 
     if( nombreElemento.includes('input')) { //hizo click en el check
-        todoList.marcarCompletado(todoId);//metodo cambia de verdadero a falso y vis 
+        todoList.marcarCompletado(todoId);//metodo cambia de verdadero a falso y vis
         todoElemento.classList.toggle('completed');//si tiene la clase la añade si no la quita
+    } else if (nombreElemento.includes('button')){ // hay que borrar el todo
+        todoList.eliminarTodo(todoId);
+        divTodoList.removeChild(todoElemento);
     }
 
     console.log(todoList);
