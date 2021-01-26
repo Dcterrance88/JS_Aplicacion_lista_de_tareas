@@ -36,3 +36,16 @@ txtInput.addEventListener('keyup', (event) =>{
         txtInput.value = '';
     }
 });
+
+divTodoList.addEventListener('click', (event) =>{
+    const nombreElemento = event.target.localName; // input, label, button
+    const todoElemento = event.target.parentElement.parentElement; //Selecciona el li
+    const todoId = todoElemento.getAttribute('data-id');// capturando el id de data-id
+
+    if( nombreElemento.includes('input')) { //hizo click en el check
+        todoList.marcarCompletado(todoId);//metodo cambia de verdadero a falso y vis 
+        todoElemento.classList.toggle('completed');//si tiene la clase la añade si no la quita
+    }
+
+    console.log(todoList);
+});
